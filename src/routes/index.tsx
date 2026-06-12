@@ -135,12 +135,24 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Get in touch</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">Wholesale, gifting & hellos.</h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
-            For custom orders, hotel and café wholesale, or just to say the bars made your week — write to Faiza directly.
+            Click below to place an order by email or message Faiza directly on WhatsApp. Bars are Rs 400 each.
           </p>
-          <a href="mailto:faizafaroq1014@gmail.com"
-            className="inline-block font-serif text-2xl md:text-3xl text-cocoa border-b-2 border-gold pb-1 hover:text-gold transition-colors">
-            faizafaroq1014@gmail.com
-          </a>
+          <div className="flex flex-col items-center gap-6">
+            <a
+              href={orderMailto}
+              className="inline-block font-serif text-2xl md:text-3xl text-cocoa border-b-2 border-gold pb-1 hover:text-gold transition-colors"
+            >
+              faizafaroq1014@gmail.com
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-cocoa text-cream text-sm uppercase tracking-[0.2em] hover:bg-gold hover:text-cocoa transition-colors"
+            >
+              WhatsApp · 0329 9515502
+            </a>
+          </div>
         </div>
       </section>
 
