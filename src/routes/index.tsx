@@ -77,8 +77,8 @@ function Index() {
             <a href="#bars" className="inline-flex items-center px-8 py-4 bg-gold text-cocoa font-medium text-sm uppercase tracking-[0.2em] hover:bg-cream transition-colors">
               Shop the bars
             </a>
-            <a href="#story" className="inline-flex items-center px-8 py-4 border border-cream/40 text-cream text-sm uppercase tracking-[0.2em] hover:bg-cream/10 transition-colors">
-              Our story
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-4 border border-cream/40 text-cream text-sm uppercase tracking-[0.2em] hover:bg-cream/10 transition-colors">
+              Order on WhatsApp
             </a>
           </div>
         </div>
