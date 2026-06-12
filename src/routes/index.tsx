@@ -21,9 +21,9 @@ export const Route = createFileRoute("/")({
 });
 
 const bars = [
-  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 400", img: barAlmond },
-  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 400", img: barPistachio },
-  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "Rs 400", img: barPeanut },
+  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 400", img: barAlmond, badge: "Bestseller" },
+  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 400", img: barPistachio, badge: "Customer Favourite" },
+  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "Rs 400", img: barPeanut, badge: "New" },
 ];
 
 const orderMailto =
@@ -68,7 +68,7 @@ function Index() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
           <p className="text-gold text-xs uppercase tracking-[0.3em] mb-6">Small batch · Pakistan</p>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-cream max-w-3xl leading-[1.05]">
-            Chocolate, the way nuts intended.
+            Where Rich Chocolate Meets Real Crunch.
           </h1>
           <p className="mt-8 text-cream/80 max-w-xl text-lg leading-relaxed">
             Slow-conched bars folded with whole roasted nuts. No fillers, no shortcuts — just cocoa, sugar and crunch.
@@ -84,6 +84,13 @@ function Index() {
         </div>
       </section>
 
+      {/* Tagline */}
+      <section className="bg-cream py-14 px-6 border-b border-border">
+        <p className="max-w-4xl mx-auto text-center font-serif text-2xl md:text-3xl text-cocoa leading-snug">
+          Handcrafted chocolate bars layered with roasted nuts, made in small batches for people who believe every bite should be generous.
+        </p>
+      </section>
+
       {/* Bars */}
       <section id="bars" className="py-28 px-6">
         <div className="max-w-7xl mx-auto">
@@ -97,9 +104,12 @@ function Index() {
           <div className="grid md:grid-cols-3 gap-10">
             {bars.map((b) => (
               <article key={b.name} className="group">
-                <div className="aspect-square overflow-hidden bg-muted mb-6">
+                <div className="relative aspect-square overflow-hidden bg-muted mb-6">
                   <img src={b.img} alt={b.name} width={1024} height={1024} loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <span className="absolute top-4 left-4 bg-gold text-cocoa text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1.5">
+                    {b.badge}
+                  </span>
                 </div>
                 <div className="flex items-baseline justify-between mb-2">
                   <h3 className="font-serif text-2xl">{b.name}</h3>
@@ -120,9 +130,9 @@ function Index() {
             "I wanted a chocolate bar where the nuts weren't an afterthought."
           </h2>
           <p className="text-cream/80 text-lg leading-relaxed max-w-2xl mx-auto">
-            NutNest began in a home kitchen in 2023, when founder <strong className="text-cream">Faiza Farooq</strong> grew
-            tired of bars where a single sad almond hid inside an inch of waxy chocolate. Today, every bar she makes is built
-            around the nuts — whole, roasted to order, and generous to the point of indulgence.
+            NutNest was born from a simple idea: chocolate bars should be generous with nuts, handcrafted in small batches,
+            and made to share. Every bar founder <strong className="text-cream">Faiza Farooq</strong> makes is built around
+            the nuts — whole, roasted to order, and generous to the point of indulgence.
           </p>
           <p className="mt-8 font-serif text-2xl text-gold">— Faiza Farooq, Founder</p>
         </div>
