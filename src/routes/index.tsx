@@ -1,16 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-chocolate.jpg";
-import barHazelnut from "@/assets/bar-hazelnut.jpg";
 import barAlmond from "@/assets/bar-almond.jpg";
-import barMixed from "@/assets/bar-mixed.jpg";
+import barPistachio from "@/assets/bar-pistachio.jpg";
+import barPeanut from "@/assets/bar-peanut.jpg";
+import logo from "@/assets/nutnest-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Faiza & Co. — Handcrafted Chocolate Bars with Nuts" },
-      { name: "description", content: "Small-batch chocolate bars folded with roasted hazelnuts, almonds and pistachios. Founded by Faiza Farooq." },
-      { property: "og:title", content: "Faiza & Co. — Handcrafted Chocolate Bars with Nuts" },
-      { property: "og:description", content: "Small-batch chocolate bars folded with roasted hazelnuts, almonds and pistachios." },
+      { title: "NutNest — Handcrafted Chocolate Bars with Nuts" },
+      { name: "description", content: "Small-batch chocolate bars folded with roasted almonds, pistachios and peanuts. Founded by Faiza Farooq." },
+      { property: "og:title", content: "NutNest — Handcrafted Chocolate Bars with Nuts" },
+      { property: "og:description", content: "Small-batch chocolate bars folded with roasted almonds, pistachios and peanuts." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
@@ -20,9 +21,9 @@ export const Route = createFileRoute("/")({
 });
 
 const bars = [
-  { name: "Hazelnut Noir", desc: "70% dark chocolate, whole Piedmont hazelnuts.", price: "$8", img: barHazelnut },
   { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "$8", img: barAlmond },
-  { name: "Pistachio Bloom", desc: "Silken white chocolate, pistachios & cashews.", price: "$9", img: barMixed },
+  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "$9", img: barPistachio },
+  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "$7", img: barPeanut },
 ];
 
 function Index() {
@@ -30,8 +31,16 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
       <header className="absolute top-0 left-0 right-0 z-20">
-        <nav className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between text-cream">
-          <a href="#" className="font-serif text-2xl tracking-wide">Faiza<span className="text-gold">&amp;</span>Co.</a>
+        <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-cream">
+          <a href="#" aria-label="NutNest home" className="flex items-center">
+            <img
+              src={logo}
+              alt="NutNest"
+              width={1536}
+              height={1024}
+              className="h-16 md:h-20 w-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+            />
+          </a>
           <div className="hidden md:flex gap-8 text-sm uppercase tracking-[0.18em]">
             <a href="#bars" className="hover:text-gold transition-colors">Bars</a>
             <a href="#story" className="hover:text-gold transition-colors">Story</a>
@@ -100,7 +109,7 @@ function Index() {
             "I wanted a chocolate bar where the nuts weren't an afterthought."
           </h2>
           <p className="text-cream/80 text-lg leading-relaxed max-w-2xl mx-auto">
-            Faiza &amp; Co. began in a home kitchen in 2023, when founder <strong className="text-cream">Faiza Farooq</strong> grew
+            NutNest began in a home kitchen in 2023, when founder <strong className="text-cream">Faiza Farooq</strong> grew
             tired of bars where a single sad almond hid inside an inch of waxy chocolate. Today, every bar she makes is built
             around the nuts — whole, roasted to order, and generous to the point of indulgence.
           </p>
@@ -111,6 +120,7 @@ function Index() {
       {/* Contact */}
       <section id="contact" className="py-28 px-6">
         <div className="max-w-3xl mx-auto text-center">
+          <img src={logo} alt="NutNest" width={1536} height={1024} loading="lazy" className="h-20 w-auto mx-auto mb-8" />
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Get in touch</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">Wholesale, gifting & hellos.</h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
@@ -125,8 +135,8 @@ function Index() {
 
       <footer className="border-t border-border py-10 px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Faiza &amp; Co. Handcrafted in small batches.</p>
-          <p className="font-serif">Faiza<span className="text-gold">&amp;</span>Co.</p>
+          <p>© {new Date().getFullYear()} NutNest. Handcrafted in small batches.</p>
+          <p className="font-serif text-foreground">NutNest</p>
         </div>
       </footer>
     </div>
