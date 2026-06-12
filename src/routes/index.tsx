@@ -21,10 +21,21 @@ export const Route = createFileRoute("/")({
 });
 
 const bars = [
-  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "$8", img: barAlmond },
-  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "$9", img: barPistachio },
-  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "$7", img: barPeanut },
+  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 400", img: barAlmond },
+  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 400", img: barPistachio },
+  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "Rs 400", img: barPeanut },
 ];
+
+const orderMailto =
+  "mailto:faizafaroq1014@gmail.com?subject=" +
+  encodeURIComponent("New NutNest Order") +
+  "&body=" +
+  encodeURIComponent(
+    "Hi Faiza,\n\nI'd like to place an order:\n\n• Bar(s) & quantity: \n• Delivery address: \n• Contact number: \n\nThank you!",
+  );
+const whatsappUrl =
+  "https://wa.me/923299515502?text=" +
+  encodeURIComponent("Hi NutNest! I'd like to place an order for your chocolate bars.");
 
 function Index() {
   return (
