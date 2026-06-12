@@ -21,10 +21,21 @@ export const Route = createFileRoute("/")({
 });
 
 const bars = [
-  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "$8", img: barAlmond },
-  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "$9", img: barPistachio },
-  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "$7", img: barPeanut },
+  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 400", img: barAlmond },
+  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 400", img: barPistachio },
+  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "Rs 400", img: barPeanut },
 ];
+
+const orderMailto =
+  "mailto:faizafaroq1014@gmail.com?subject=" +
+  encodeURIComponent("New NutNest Order") +
+  "&body=" +
+  encodeURIComponent(
+    "Hi Faiza,\n\nI'd like to place an order:\n\n• Bar(s) & quantity: \n• Delivery address: \n• Contact number: \n\nThank you!",
+  );
+const whatsappUrl =
+  "https://wa.me/923299515502?text=" +
+  encodeURIComponent("Hi NutNest! I'd like to place an order for your chocolate bars.");
 
 function Index() {
   return (
@@ -66,8 +77,8 @@ function Index() {
             <a href="#bars" className="inline-flex items-center px-8 py-4 bg-gold text-cocoa font-medium text-sm uppercase tracking-[0.2em] hover:bg-cream transition-colors">
               Shop the bars
             </a>
-            <a href="#story" className="inline-flex items-center px-8 py-4 border border-cream/40 text-cream text-sm uppercase tracking-[0.2em] hover:bg-cream/10 transition-colors">
-              Our story
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-4 border border-cream/40 text-cream text-sm uppercase tracking-[0.2em] hover:bg-cream/10 transition-colors">
+              Order on WhatsApp
             </a>
           </div>
         </div>
@@ -124,12 +135,24 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Get in touch</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">Wholesale, gifting & hellos.</h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
-            For custom orders, hotel and café wholesale, or just to say the bars made your week — write to Faiza directly.
+            Click below to place an order by email or message Faiza directly on WhatsApp. Bars are Rs 400 each.
           </p>
-          <a href="mailto:faizafaroq1014@gmail.com"
-            className="inline-block font-serif text-2xl md:text-3xl text-cocoa border-b-2 border-gold pb-1 hover:text-gold transition-colors">
-            faizafaroq1014@gmail.com
-          </a>
+          <div className="flex flex-col items-center gap-6">
+            <a
+              href={orderMailto}
+              className="inline-block font-serif text-2xl md:text-3xl text-cocoa border-b-2 border-gold pb-1 hover:text-gold transition-colors"
+            >
+              faizafaroq1014@gmail.com
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-cocoa text-cream text-sm uppercase tracking-[0.2em] hover:bg-gold hover:text-cocoa transition-colors"
+            >
+              WhatsApp · 0329 9515502
+            </a>
+          </div>
         </div>
       </section>
 
