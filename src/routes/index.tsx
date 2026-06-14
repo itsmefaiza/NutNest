@@ -55,6 +55,7 @@ function Index() {
           </a>
           <div className="hidden md:flex gap-8 text-sm uppercase tracking-[0.18em]">
             <a href="#bars" className="hover:text-gold transition-colors">Bars</a>
+            <a href="#customize" className="hover:text-gold transition-colors">Customize</a>
             <a href="#story" className="hover:text-gold transition-colors">Story</a>
             <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
           </div>
