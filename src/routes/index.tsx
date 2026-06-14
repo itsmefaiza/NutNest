@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-chocolate.jpg";
 import barAlmond from "@/assets/bar-almond.jpg";
 import barPistachio from "@/assets/bar-pistachio.jpg";
-import barPeanut from "@/assets/bar-peanut.jpg";
+import barWalnut from "@/assets/bar-walnut.jpg";
 import logo from "@/assets/nutnest-logo.png";
 
 export const Route = createFileRoute("/")({
