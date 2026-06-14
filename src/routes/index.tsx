@@ -21,9 +21,9 @@ export const Route = createFileRoute("/")({
 });
 
 const bars = [
-  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 400", img: barAlmond, badge: "Bestseller" },
-  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 400", img: barPistachio, badge: "Customer Favourite" },
-  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "Rs 400", img: barPeanut, badge: "New" },
+  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 500", img: barAlmond, badge: "Bestseller" },
+  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 550", img: barPistachio, badge: "Customer Favourite" },
+  { name: "Walnut Velvet", desc: "Dark chocolate folded with toasted walnut halves.", price: "Rs 500", img: barWalnut, badge: "New" },
 ];
 
 const orderMailto =
