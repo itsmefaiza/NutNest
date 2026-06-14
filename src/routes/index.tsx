@@ -39,7 +39,7 @@ const whatsappUrl =
   encodeURIComponent("Hi NutNest! I'd like to place an order for your chocolate bars.");
 
 const chocolateBases = ["Dark", "Milk", "White"];
-const fillings = ["Caramel", "Hazelnut Praline", "Strawberry Jam", "Coffee Ganache", "Honey Nougat", "No filling"];
+const fillings = ["Hazelnut Praline", "Strawberry Jam", "Peanut Butter", "Marshmallow", "Biscuit Crunch", "No filling"];
 const nutChoices = ["Almonds", "Pistachios", "Walnuts", "Hazelnuts", "Cashews", "No nuts"];
 
 function Index() {
