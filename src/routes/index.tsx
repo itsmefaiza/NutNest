@@ -44,7 +44,7 @@ const nutChoices = ["Almonds", "Pistachios", "Walnuts", "Hazelnuts", "Cashews", 
 
 function Index() {
   const [base, setBase] = useState("Dark");
-  const [filling, setFilling] = useState("Caramel");
+  const [filling, setFilling] = useState("Hazelnut Praline");
   const [nuts, setNuts] = useState<string[]>(["Almonds"]);
   const [notes, setNotes] = useState("");
 
