@@ -281,7 +281,7 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Get in touch</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">Wholesale, gifting & hellos.</h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
-            Click below to place an order by email or message Faiza directly on WhatsApp. Bars are Rs 400 each.
+            Click below to place an order by email or message Faiza directly on WhatsApp. Signature bars from Rs 500. Custom bars from Rs 600.
           </p>
           <div className="flex flex-col items-center gap-6">
             <a
