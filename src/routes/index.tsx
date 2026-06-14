@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import heroImg from "@/assets/hero-chocolate.jpg";
 import barAlmond from "@/assets/bar-almond.jpg";
 import barPistachio from "@/assets/bar-pistachio.jpg";
-import barPeanut from "@/assets/bar-peanut.jpg";
+import barWalnut from "@/assets/bar-walnut.jpg";
 import logo from "@/assets/nutnest-logo.png";
 
 export const Route = createFileRoute("/")({
@@ -21,13 +22,13 @@ export const Route = createFileRoute("/")({
 });
 
 const bars = [
-  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 400", img: barAlmond, badge: "Bestseller" },
-  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 400", img: barPistachio, badge: "Customer Favourite" },
-  { name: "Peanut Praline", desc: "Deep milk chocolate, salted roasted peanuts.", price: "Rs 400", img: barPeanut, badge: "New" },
+  { name: "Almond Crunch", desc: "Velvety milk chocolate, roasted Marcona almonds.", price: "Rs 500", img: barAlmond, badge: "Bestseller" },
+  { name: "Pistachio Bloom", desc: "Silken white chocolate, slow-roasted pistachios.", price: "Rs 550", img: barPistachio, badge: "Customer Favourite" },
+  { name: "Walnut Velvet", desc: "Dark chocolate folded with toasted walnut halves.", price: "Rs 500", img: barWalnut, badge: "New" },
 ];
 
 const orderMailto =
-  "mailto:faizafaroq1014@gmail.com?subject=" +
+  "mailto:thenutnestoffical@gmail.com?subject=" +
   encodeURIComponent("New NutNest Order") +
   "&body=" +
   encodeURIComponent(
@@ -37,7 +38,25 @@ const whatsappUrl =
   "https://wa.me/923299515502?text=" +
   encodeURIComponent("Hi NutNest! I'd like to place an order for your chocolate bars.");
 
+const chocolateBases = ["Dark", "Milk", "White"];
+const fillings = ["Caramel", "Hazelnut Praline", "Strawberry Jam", "Coffee Ganache", "Honey Nougat", "No filling"];
+const nutChoices = ["Almonds", "Pistachios", "Walnuts", "Hazelnuts", "Cashews", "No nuts"];
+
 function Index() {
+  const [base, setBase] = useState("Dark");
+  const [filling, setFilling] = useState("Caramel");
+  const [nuts, setNuts] = useState<string[]>(["Almonds"]);
+  const [notes, setNotes] = useState("");
+
+  const toggleNut = (n: string) =>
+    setNuts((prev) => (prev.includes(n) ? prev.filter((x) => x !== n) : [...prev, n]));
+
+  const customMessage = encodeURIComponent(
+    `Hi NutNest! I'd like to customize a chocolate bar:\n\n• Chocolate base: ${base}\n• Filling: ${filling}\n• Nuts: ${nuts.join(", ") || "None"}\n• Notes: ${notes || "—"}\n\nThank you!`,
+  );
+  const customWhatsapp = `https://wa.me/923299515502?text=${customMessage}`;
+  const customMailto = `mailto:thenutnestoffical@gmail.com?subject=${encodeURIComponent("Custom NutNest Bar")}&body=${customMessage}`;
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
@@ -54,6 +73,7 @@ function Index() {
           </a>
           <div className="hidden md:flex gap-8 text-sm uppercase tracking-[0.18em]">
             <a href="#bars" className="hover:text-gold transition-colors">Bars</a>
+            <a href="#customize" className="hover:text-gold transition-colors">Customize</a>
             <a href="#story" className="hover:text-gold transition-colors">Story</a>
             <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
           </div>
@@ -122,6 +142,122 @@ function Index() {
         </div>
       </section>
 
+
+      {/* Customize */}
+      <section id="customize" className="py-28 px-6 bg-cream border-y border-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Build Your Own</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-cocoa mb-4">Craft your own bar.</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Pick a chocolate base, a filling, and the nuts you love. We'll handcraft it just for you.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 bg-background border border-border p-8 md:p-12">
+            <div className="space-y-8">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Chocolate base</p>
+                <div className="flex flex-wrap gap-2">
+                  {chocolateBases.map((b) => (
+                    <button
+                      key={b}
+                      type="button"
+                      onClick={() => setBase(b)}
+                      className={`px-4 py-2 text-sm border transition-colors ${
+                        base === b ? "bg-cocoa text-cream border-cocoa" : "border-border hover:border-gold"
+                      }`}
+                    >
+                      {b}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Filling</p>
+                <div className="flex flex-wrap gap-2">
+                  {fillings.map((f) => (
+                    <button
+                      key={f}
+                      type="button"
+                      onClick={() => setFilling(f)}
+                      className={`px-4 py-2 text-sm border transition-colors ${
+                        filling === f ? "bg-cocoa text-cream border-cocoa" : "border-border hover:border-gold"
+                      }`}
+                    >
+                      {f}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Nuts (pick any)</p>
+                <div className="flex flex-wrap gap-2">
+                  {nutChoices.map((n) => (
+                    <button
+                      key={n}
+                      type="button"
+                      onClick={() => toggleNut(n)}
+                      className={`px-4 py-2 text-sm border transition-colors ${
+                        nuts.includes(n) ? "bg-gold text-cocoa border-gold" : "border-border hover:border-gold"
+                      }`}
+                    >
+                      {n}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Special notes</p>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  rows={3}
+                  placeholder="Allergies, sweetness level, gift message…"
+                  className="w-full px-4 py-3 border border-border bg-background text-sm focus:outline-none focus:border-gold"
+                />
+              </div>
+            </div>
+
+            <div className="bg-cocoa text-cream p-8 flex flex-col">
+              <p className="text-gold text-xs uppercase tracking-[0.3em] mb-4">Your bar</p>
+              <h3 className="font-serif text-3xl mb-6 leading-tight">
+                {base} chocolate
+                {filling !== "No filling" && <> with {filling.toLowerCase()}</>}
+                {nuts.length > 0 && <> & {nuts.join(", ").toLowerCase()}</>}
+              </h3>
+              <dl className="space-y-3 text-sm text-cream/80 mb-8">
+                <div className="flex justify-between border-b border-cream/10 pb-2"><dt>Base</dt><dd className="text-cream">{base}</dd></div>
+                <div className="flex justify-between border-b border-cream/10 pb-2"><dt>Filling</dt><dd className="text-cream">{filling}</dd></div>
+                <div className="flex justify-between border-b border-cream/10 pb-2"><dt>Nuts</dt><dd className="text-cream text-right">{nuts.length ? nuts.join(", ") : "None"}</dd></div>
+              </dl>
+              <p className="text-cream/70 text-sm mb-6 mt-auto">
+                Custom bars start at Rs 600. We'll confirm price & delivery on WhatsApp.
+              </p>
+              <div className="flex flex-col gap-3">
+                <a
+                  href={customWhatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center px-6 py-3 bg-gold text-cocoa text-sm uppercase tracking-[0.2em] hover:bg-cream transition-colors"
+                >
+                  Send on WhatsApp
+                </a>
+                <a
+                  href={customMailto}
+                  className="block text-center px-6 py-3 border border-cream/40 text-cream text-sm uppercase tracking-[0.2em] hover:bg-cream/10 transition-colors"
+                >
+                  Send by Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Story */}
       <section id="story" className="py-28 px-6 bg-cocoa text-cream">
         <div className="max-w-4xl mx-auto text-center">
@@ -145,14 +281,14 @@ function Index() {
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Get in touch</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-8">Wholesale, gifting & hellos.</h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
-            Click below to place an order by email or message Faiza directly on WhatsApp. Bars are Rs 400 each.
+            Click below to place an order by email or message Faiza directly on WhatsApp. Signature bars from Rs 500. Custom bars from Rs 600.
           </p>
           <div className="flex flex-col items-center gap-6">
             <a
               href={orderMailto}
               className="inline-block font-serif text-2xl md:text-3xl text-cocoa border-b-2 border-gold pb-1 hover:text-gold transition-colors"
             >
-              faizafaroq1014@gmail.com
+              thenutnestoffical@gmail.com
             </a>
             <a
               href={whatsappUrl}
