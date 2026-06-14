@@ -27,7 +27,7 @@ const bars = [
 ];
 
 const orderMailto =
-  "mailto:faizafaroq1014@gmail.com?subject=" +
+  "mailto:thenutnestoffical@gmail.com?subject=" +
   encodeURIComponent("New NutNest Order") +
   "&body=" +
   encodeURIComponent(
@@ -152,7 +152,7 @@ function Index() {
               href={orderMailto}
               className="inline-block font-serif text-2xl md:text-3xl text-cocoa border-b-2 border-gold pb-1 hover:text-gold transition-colors"
             >
-              faizafaroq1014@gmail.com
+              thenutnestoffical@gmail.com
             </a>
             <a
               href={whatsappUrl}
