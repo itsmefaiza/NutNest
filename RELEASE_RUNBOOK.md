@@ -20,9 +20,14 @@ List any backend changes included in this release:
 > **Prompt:** "Did this release include any of the backend changes listed in Step 2?"
 >
 > If **yes**, request a full security re-scan **before** publishing:
-> - In Lovable chat, ask the agent: **"Run a full security re-scan and report any findings."**
+> - In Lovable chat, paste the ready-to-copy prompt below.
 > - Wait for results. Fix or explicitly ignore each new finding before continuing.
 > - Do not proceed to Step 4 until the scan returns no unresolved findings.
+>
+> **Ready-to-copy prompt:**
+> ```
+> Run a full security re-scan of the backend now and report every finding (internal_id, severity, affected table/function, and recommended fix). This release included backend changes — do not skip. List any new findings since the last scan and explicitly confirm "no unresolved findings" if the scan is clean. Do not fix or ignore anything yet; just report.
+> ```
 >
 > If **no**, note "No backend changes — security re-scan skipped" in the release notes and continue.
 
